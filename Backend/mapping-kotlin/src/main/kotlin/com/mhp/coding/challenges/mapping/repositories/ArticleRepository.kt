@@ -71,6 +71,6 @@ object ArticleRepository {
             imageSize = ImageSize.LARGE,
             lastModified = Date(),
             lastModifiedBy = "John Doe"
-        ).let { null }
+        )//.let { null }  //Trap ? (:
     }
 }

@@ -14,16 +14,15 @@ class ArticleService{
     @Autowired
     lateinit var customMapper: ICustomMapper
 
-
     fun list(): List<ArticleDto> {
         val articles = ArticleRepository.all()
-        val list: ArrayList<ArticleDto> = ArrayList(articles.size)
 
+        val list: ArrayList<ArticleDto> = ArrayList(articles.size)
         for(article in articles) {
             list.add(customMapper.toArticleDto(article))
         }
 
-        return list()
+        return list
     }
 
     fun articleForId(id: Long): ArticleDto {
@@ -32,7 +31,7 @@ class ArticleService{
     }
 
     fun create(articleDto: ArticleDto): ArticleDto {
-        val article = customMapper.toArticle(articleDto)
+        val article: Article = customMapper.toArticle(articleDto)
         ArticleRepository.create(article)
         return customMapper.toArticleDto(article)
     }
