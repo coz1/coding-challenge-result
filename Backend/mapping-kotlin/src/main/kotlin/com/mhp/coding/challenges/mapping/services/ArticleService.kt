@@ -2,17 +2,27 @@ package com.mhp.coding.challenges.mapping.services
 
 import com.mhp.coding.challenges.mapping.repositories.ArticleRepository
 import com.mhp.coding.challenges.mapping.mappers.ArticleMapper
+import com.mhp.coding.challenges.mapping.mappers.ICustomMapper
 import com.mhp.coding.challenges.mapping.models.dto.ArticleDto
+import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
-class ArticleService(
-    private val mapper: ArticleMapper,
-) {
+class ArticleService{
+
+    @Autowired
+    lateinit var customMapper: ICustomMapper
+
+
     fun list(): List<ArticleDto> {
         val articles = ArticleRepository.all()
-        //TODO
-        return emptyList()
+        val list: ArrayList<ArticleDto> = ArrayList(articles.size)
+
+        for(article in articles) {
+            list.add(customMapper.toArticleDto(article))
+        }
+
+        return list()
     }
 
     fun articleForId(id: Long): ArticleDto {
@@ -22,8 +32,8 @@ class ArticleService(
     }
 
     fun create(articleDto: ArticleDto): ArticleDto {
-        val article = mapper.map(articleDto)
+        val article = customMapper.toArticle(articleDto)
         ArticleRepository.create(article)
-        return mapper.map(article)
+        return customMapper.toArticleDto(article)
     }
 }
