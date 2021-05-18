@@ -29,8 +29,8 @@ dependencies {
 
 	implementation("org.mockito:mockito-core:3.10.0")
 	testImplementation("org.mockito:mockito-inline:2.13.0")
+	testImplementation("io.mockk:mockk:1.9.3")
 	kapt("org.mapstruct:mapstruct-processor:1.4.2.Final")
-
 }
 
 tasks {
