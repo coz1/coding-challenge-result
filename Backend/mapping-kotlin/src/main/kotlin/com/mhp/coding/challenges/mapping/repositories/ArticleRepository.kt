@@ -11,8 +11,7 @@ object ArticleRepository {
     fun all(): List<Article> = setOf(1001L, 2002L, 3003L, 4004L, 5005L).map { it.createDummyArticle }
 
     fun findBy(id: Long): Article? {
-
-        return all().singleOrNull() { s -> s.id == id }
+        return all().singleOrNull { article -> article.id == id }
     }
 
     fun create(article: Article?) {
@@ -74,6 +73,6 @@ object ArticleRepository {
             imageSize = ImageSize.LARGE,
             lastModified = Date(),
             lastModifiedBy = "John Doe"
-        )//.let { null }  //constantly null ??? do not understand the intention behind it !
+        )//.let { null }  //TRAP? :)
     }
 }

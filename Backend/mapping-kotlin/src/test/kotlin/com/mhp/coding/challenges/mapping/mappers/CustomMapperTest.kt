@@ -1,6 +1,5 @@
 package com.mhp.coding.challenges.mapping.mappers
 
-import com.mhp.coding.challenges.mapping.mappers.ICustomMapper
 import com.mhp.coding.challenges.mapping.models.db.Article
 import com.mhp.coding.challenges.mapping.models.db.Image
 import com.mhp.coding.challenges.mapping.models.db.ImageSize

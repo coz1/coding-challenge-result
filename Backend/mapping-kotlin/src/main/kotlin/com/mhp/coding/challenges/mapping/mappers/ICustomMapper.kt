@@ -56,18 +56,17 @@ interface ICustomMapper {
         return collection
     }
 
+    fun toTextBlockDto(textBlock: TextBlock?): com.mhp.coding.challenges.mapping.models.dto.blocks.TextBlock?
+    fun toTextBlock(textBlockDto: com.mhp.coding.challenges.mapping.models.dto.blocks.TextBlock?): TextBlock?
 
-    fun toTextBlockDto(TextBlock: TextBlock?): com.mhp.coding.challenges.mapping.models.dto.blocks.TextBlock?
-    fun toTextBlock(TextBlockDto: com.mhp.coding.challenges.mapping.models.dto.blocks.TextBlock?): TextBlock?
+    fun toGalleryBlockDto(galleryBlock: GalleryBlock?): GalleryBlockDto?
+    fun toGalleryBlock(galleryBlockDto: GalleryBlockDto?): GalleryBlock?
 
-    fun toGalleryBlockDto(GalleryBlock: GalleryBlock?): GalleryBlockDto?
-    fun toGalleryBlock(GalleryBlockDto: GalleryBlockDto?): GalleryBlock?
+    fun toVideoBlockDto(videoBlock: VideoBlock?): com.mhp.coding.challenges.mapping.models.dto.blocks.VideoBlock?
+    fun toVideoBlock(videoBlockDto: com.mhp.coding.challenges.mapping.models.dto.blocks.VideoBlock?): VideoBlock?
 
-    fun toVideoBlockDto(VideoBlock: VideoBlock?): com.mhp.coding.challenges.mapping.models.dto.blocks.VideoBlock?
-    fun toVideoBlock(VideoBlockDto: com.mhp.coding.challenges.mapping.models.dto.blocks.VideoBlock?): VideoBlock?
-
-    fun toImageBlockDto(ImageBlock: ImageBlock?): com.mhp.coding.challenges.mapping.models.dto.blocks.ImageBlock?
-    fun toImageBlock(ImageBlockDto: com.mhp.coding.challenges.mapping.models.dto.blocks.ImageBlock?): ImageBlock?
+    fun toImageBlockDto(imageBlock: ImageBlock?): com.mhp.coding.challenges.mapping.models.dto.blocks.ImageBlock?
+    fun toImageBlock(imageBlockDto: com.mhp.coding.challenges.mapping.models.dto.blocks.ImageBlock?): ImageBlock?
 }
 
 

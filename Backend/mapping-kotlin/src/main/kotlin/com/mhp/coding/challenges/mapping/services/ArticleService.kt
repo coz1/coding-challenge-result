@@ -9,16 +9,18 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
 
 @Service
-class ArticleService{
+class ArticleService(
+    @Autowired private var customMapper: ICustomMapper,
+    ) {
 
-    @Autowired
-    lateinit var customMapper: ICustomMapper
+    //lateinit var customMapper: ICustomMapper
+
 
     fun list(): List<ArticleDto> {
         val articles = ArticleRepository.all()
 
         val list: ArrayList<ArticleDto> = ArrayList(articles.size)
-        for(article in articles) {
+        for (article in articles) {
             list.add(customMapper.toArticleDto(article))
         }
 
@@ -27,7 +29,8 @@ class ArticleService{
 
     fun articleForId(id: Long): ArticleDto {
         val article: Article? = ArticleRepository.findBy(id)
-        return article?.let { customMapper.toArticleDto(it) } ?: throw ArticleNotFoundException("Could not find article with id: $id")
+        return article?.let { customMapper.toArticleDto(it) }
+            ?: throw ArticleNotFoundException("Could not find article with id: $id")
     }
 
     fun create(articleDto: ArticleDto): ArticleDto {
