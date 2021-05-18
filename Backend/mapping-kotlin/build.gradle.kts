@@ -19,7 +19,8 @@ repositories {
 
 dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-web")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
+    implementation("org.junit.jupiter:junit-jupiter:5.7.0")
+    testImplementation("org.springframework.boot:spring-boot-starter-test")
 
 	implementation("org.mapstruct:mapstruct:1.4.2.Final")
 	annotationProcessor("org.mapstruct:mapstruct-processor:1.4.2.Final")
