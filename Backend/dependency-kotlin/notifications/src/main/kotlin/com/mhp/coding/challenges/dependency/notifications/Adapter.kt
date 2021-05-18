@@ -9,6 +9,7 @@ class Adapter(
     @Autowired private val pushNotificationHandler: PushNotificationHandler,
 ): InquiryHandler {
     override fun handle(inquiry: Inquiry) {
-
+        emailHandler.sendEmail(inquiry)
+        pushNotificationHandler.sendNotification(inquiry)
     }
 }
