@@ -8,8 +8,6 @@ import com.mhp.coding.challenges.mapping.models.dto.blocks.GalleryBlockDto
 import org.mapstruct.InjectionStrategy
 import org.mapstruct.Mapper
 
-
-
 @Mapper(componentModel = "spring", injectionStrategy = InjectionStrategy.CONSTRUCTOR)
 interface ICustomMapper {
 
@@ -53,24 +51,23 @@ interface ICustomMapper {
         for (articleBlock in set) {
             collection.add(toArticleBlockDto(articleBlock))
         }
-
         collection.sortBy { it?.sortIndex }
 
         return collection
     }
 
 
-    fun toTextBlockDto(articleBlock: TextBlock?): com.mhp.coding.challenges.mapping.models.dto.blocks.TextBlock?
-    fun toTextBlock(articleBlockDto: com.mhp.coding.challenges.mapping.models.dto.blocks.TextBlock?): TextBlock?
+    fun toTextBlockDto(TextBlock: TextBlock?): com.mhp.coding.challenges.mapping.models.dto.blocks.TextBlock?
+    fun toTextBlock(TextBlockDto: com.mhp.coding.challenges.mapping.models.dto.blocks.TextBlock?): TextBlock?
 
-    fun toGalleryBlockDto(articleBlock: GalleryBlock?): GalleryBlockDto?
-    fun toGalleryBlock(articleBlockDto: GalleryBlockDto?): GalleryBlock?
+    fun toGalleryBlockDto(GalleryBlock: GalleryBlock?): GalleryBlockDto?
+    fun toGalleryBlock(GalleryBlockDto: GalleryBlockDto?): GalleryBlock?
 
-    fun toVideoBlockDto(articleBlock: VideoBlock?): com.mhp.coding.challenges.mapping.models.dto.blocks.VideoBlock?
-    fun toVideoBlock(articleBlockDto: com.mhp.coding.challenges.mapping.models.dto.blocks.VideoBlock?): VideoBlock?
+    fun toVideoBlockDto(VideoBlock: VideoBlock?): com.mhp.coding.challenges.mapping.models.dto.blocks.VideoBlock?
+    fun toVideoBlock(VideoBlockDto: com.mhp.coding.challenges.mapping.models.dto.blocks.VideoBlock?): VideoBlock?
 
-    fun toImageBlockDto(articleBlock: ImageBlock?): com.mhp.coding.challenges.mapping.models.dto.blocks.ImageBlock?
-    fun toImageBlock(articleBlockDto: com.mhp.coding.challenges.mapping.models.dto.blocks.ImageBlock?): ImageBlock?
+    fun toImageBlockDto(ImageBlock: ImageBlock?): com.mhp.coding.challenges.mapping.models.dto.blocks.ImageBlock?
+    fun toImageBlock(ImageBlockDto: com.mhp.coding.challenges.mapping.models.dto.blocks.ImageBlock?): ImageBlock?
 }
 
 
